@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <link rel="stylesheet" href="backgroound.css">
+    
+</head>
+<body>
+
+    <button onclick="changeBackgroundColor()">Click me!</button>
+
+    <script>
+        function changeBackgroundColor() {
+
+            const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 75%)`;
+            
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+
+</body>
+</html>
