@@ -1,0 +1,14 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.2em;
+}
+td {
+    border: 1px solid black;
+    padding: 20px;
+    width: 50%;
+    height: 50px;
+}
+.box1 { background-color: cornflowerblue; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+.box2 { background-color: lightgray; font-family: sans-serif;}
