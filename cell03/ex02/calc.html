@@ -37,27 +37,49 @@
             const operator = document.getElementById("operator").value;
             const right = document.getElementById("right").value;
 
-            if (left === "" || right === "" || left < 0 || right < 0) {
-                alert("Error :(");
+            // Check if inputs are empty or contain non-numeric values
+            if (left === "" || right === "" || isNaN(left) || isNaN(right)) {
+                alert("Error :");
+                console.log("Error :");
                 return;
             }
-            
-            const num1 = parseInt(left);
-            const num2 = parseInt(right);
+
+            const num1 = parseFloat(left);
+            const num2 = parseFloat(right);
+
+            // Check if any number is negative and handle accordingly
+            if (num1 < 0 || num2 < 0) {
+                alert("Error :");
+                console.log("Error :");
+                return;
+            }
+
             let result;
 
+            // Check for division or modulo by zero
             if ((operator === "/" || operator === "%") && num2 === 0) {
                 alert("It’s over 9000!");
                 console.log("It’s over 9000!");
                 return;
             }
 
+            // Perform the calculation based on the operator
             switch (operator) {
-                case "+": result = num1 + num2; break;
-                case "-": result = num1 - num2; break;
-                case "*": result = num1 * num2; break;
-                case "/": result = num1 / num2; break;
-                case "%": result = num1 % num2; break;
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num1 / num2;
+                    break;
+                case "%":
+                    result = num1 % num2;
+                    break;
             }
 
             alert("Result: " + result);
