@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+        input, select, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="left" placeholder="Enter a number" min="0">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="right" placeholder="Enter a number" min="0">
+    <button id="calculate">Try me!</button>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        function calculate() {
+            const left = $('#left').val();
+            const operator = $('#operator').val();
+            const right = $('#right').val();
+
+            if (left === "" || right === "" || isNaN(left) || isNaN(right)) {
+                alert("Error :");
+                console.log("Error :");
+                return;
+            }
+
+            const num1 = parseFloat(left);
+            const num2 = parseFloat(right);
+
+            if (num1 < 0 || num2 < 0) {
+                alert("Error :");
+                console.log("Error :");
+                return;
+            }
+
+            let result;
+
+            if ((operator === "/" || operator === "%") && num2 === 0) {
+                alert("It’s over 9000!");
+                console.log("It’s over 9000!");
+                return;
+            }
+
+            switch (operator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num1 / num2;
+                    break;
+                case "%":
+                    result = num1 % num2;
+                    break;
+            }
+
+            alert("Result: " + result);
+            console.log("Result:", result);
+        }
+
+        $('#calculate').click(calculate);
+        
+        setInterval(() => alert("Please, use me..."), 30000);
+    </script>
+</body>
+</html>
