@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+        input, select, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="left" placeholder="Enter a number" min="0">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="number" id="right" placeholder="Enter a number" min="0">
+    <button id="calculate">Try me!</button>
+    
+    <script>
+        function calculate() {
+            const left = document.getElementById("left").value;
+            const operator = document.getElementById("operator").value;
+            const right = document.getElementById("right").value;
+
+            if (left === "" || right === "" || left < 0 || right < 0) {
+                alert("Error :(");
+                return;
+            }
+            
+            const num1 = parseInt(left);
+            const num2 = parseInt(right);
+            let result;
+
+            if ((operator === "/" || operator === "%") && num2 === 0) {
+                alert("It’s over 9000!");
+                console.log("It’s over 9000!");
+                return;
+            }
+
+            switch (operator) {
+                case "+": result = num1 + num2; break;
+                case "-": result = num1 - num2; break;
+                case "*": result = num1 * num2; break;
+                case "/": result = num1 / num2; break;
+                case "%": result = num1 % num2; break;
+            }
+
+            alert("Result: " + result);
+            console.log("Result:", result);
+        }
+
+        document.getElementById("calculate").addEventListener("click", calculate);
+        
+        setInterval(() => alert("Please, use me..."), 30000);
+    </script>
+</body>
+</html>
